@@ -6,7 +6,7 @@
 #    By: ahooghe <ahooghe@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/07 03:30:54 by ahooghe           #+#    #+#              #
-#    Updated: 2024/08/18 14:01:01 by ahooghe          ###   ########.fr        #
+#    Updated: 2024/08/27 22:03:23 by ahooghe          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,14 +58,10 @@ clean:
 	@echo "\033[38;2;139;0;0mCleaning the network\033[5m...\033[0m"
 	@docker-compose -f srcs/docker-compose.yml down --rmi all --volumes
 
-fclean:
-	@echo "\033[38;2;139;0;0mDeleting all data in linked directories\033[5m...\033[0m"	
-	rm -rf /home/ahooghe/data
-
 re: 
 	@echo "\033[38;2;255;0;0mStopping, destroying, rebuilding and starting the network\033[5m...\033[0m"
 	@make clean
 	@make rebuild
 	@make up
 
-.PHONY: all up build rebuild stop down re clean logs status fclean
+.PHONY: all up build rebuild stop down re clean logs status
